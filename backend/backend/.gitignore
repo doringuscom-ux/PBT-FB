@@ -1,0 +1,7 @@
+node_modules/
+.env
+uploads/
+last_error.txt
+output.txt
+.DS_Store
+Thumbs.db

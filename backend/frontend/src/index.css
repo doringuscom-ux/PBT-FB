@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Open Sans', 'Roboto', Arial, Helvetica, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+  }
+}
+
+:root {
+  --primary-red: #d32f2f;
+  --secondary-red: #b71c1c;
+  --accent-gold: #ffc107;
+}
+
+body {
+  @apply bg-[#f9f9f9] text-text-dark leading-relaxed;
+}
+
+/* Custom scrollbar for horizontal movie slider */
+.movies-slider::-webkit-scrollbar {
+  height: 8px;
+}
+
+.movies-slider::-webkit-scrollbar-thumb {
+  background-color: var(--primary-red);
+  border-radius: 10px;
+}
+
+/* Rich Text & Layout Fixes */
+.rich-text-content,
+.rich-text-content *,
+.font-article-text,
+.font-article-text *,
+.prose,
+.prose * {
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  word-break: normal !important;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  -moz-hyphens: none !important;
+  -ms-hyphens: none !important;
+  text-align: left !important;
+  white-space: normal !important;
+  line-height: 1.7 !important;
+}
+
+.rich-text-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.rich-text-content p {
+  margin-bottom: 1.5rem;
+}
+
+.rich-text-content h1, .rich-text-content h2, .rich-text-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: -0.05em;
+}
+
+.rich-text-content ul, .rich-text-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.rich-text-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* Ensure flex containers don't overflow */
+.main-content-area {
+  min-width: 0;
+}
+
+/* 404 Page Animations */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+
+/* Hero Section Animations */
+@keyframes reveal {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-reveal {
+  animation: reveal 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+@keyframes slideInfinite {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-slide-infinite {
+  animation: slideInfinite 3s linear infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(-45deg); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translateX(100%) rotate(-45deg); opacity: 0; }
+}
+
+.animate-shine {
+  animation: shine 1.5s ease-in-out infinite;
+}
+
+.text-shadow-premium {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)];
+}
+
+.text-gradient-red {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-red to-[#ff4d4d];
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation: marquee 15s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-infinite {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-infinite {
+  animation: marquee-infinite 30s linear infinite;
+}
+
+.animate-marquee-infinite:hover {
+  animation-play-state: paused;
+}
+
+.page-container {
+  @apply w-[96%] max-w-[1800px] mx-auto px-4;
+}
+
+/* Skeleton Loading Shimmer */
+@keyframes skeleton-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite linear;
+  border-radius: 0.5rem;
+}
+
+.skeleton-text {
+  height: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
